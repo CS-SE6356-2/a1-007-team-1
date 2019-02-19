@@ -9,13 +9,13 @@ public class Main {
 
 class NamePrinter {
     /**
-     * Prints the names of the group members separated by spaces.
+     * Prints the names of the group members separated by plus signs.
      */
     public void printNames() {
         String separator = "+";
 
         String[] names = {
-                "Name 1",
+                "Jacob E.",
                 "Name 2",
                 "Name 3",
                 "Name 4",
