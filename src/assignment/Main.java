@@ -10,6 +10,8 @@ public class Main {
 class NamePrinter {
     /**
      * Prints the names of the group members separated by plus signs.
+     *
+     * Team note: if you change the separator, make sure to change it in the comments.
      */
     public void printNames() {
         String separator = "+";
