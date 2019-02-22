@@ -14,11 +14,11 @@ class NamePrinter {
      * Team note: if you change the separator, make sure to change it in the comments.
      */
     public void printNames() {
-        String separator = "+";
+        String separator = "-";
 
         String[] names = {
                 "Jacob E.",
-                "Name 2",
+                "Taha J.",
                 "Name 3",
                 "Name 4",
                 "Name 5"};
