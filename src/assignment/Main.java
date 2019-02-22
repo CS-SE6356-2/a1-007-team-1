@@ -9,18 +9,18 @@ public class Main {
 
 class NamePrinter {
     /**
-     * Prints the names of the group members separated by commas.
+     * Prints the names of the group members separated by semi-colons.
      *
      * Team note: if you change the separator, make sure to change it in the comments.
      */
     public void printNames() {
-        String separator = ",";
+        String separator = ";";
 
         String[] names = {
                 "Jacob E.",
                 "Taha J.",
                 "John P.",
-                "Name 4",
+                "Jacob B.",
                 "Name 5"};
 
         System.out.println(String.join(separator, names));
