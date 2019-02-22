@@ -9,7 +9,7 @@ public class Main {
 
 class NamePrinter {
     /**
-     * Prints the names of the group members separated by commas signs.
+     * Prints the names of the group members separated by commas.
      *
      * Team note: if you change the separator, make sure to change it in the comments.
      */
