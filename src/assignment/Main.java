@@ -10,17 +10,17 @@ public class Main {
 class NamePrinter {
     class NamePrinter {
     /**
-     * Prints the names of the group members separated by a dash.
+     * Prints the names of the group members separated by a comma.
      *
      * Team note: if you change the separator, make sure to change it in the comments.
      */
     public void printNames() {
-        String separator = "-";
+        String separator = ",";
 
         String[] names = {
                 "Jacob E.",
                 "Taha J.",
-                "Name 3",
+                "John P",
                 "Name 4",
                 "Name 5"};
 
