@@ -10,28 +10,35 @@ public class Deck
     {
         if(type == "BlackJack")
         {
-            deck = new Card[51];
-            for(int i=0; i<= 3; i++)
+            deck = new Card[104];
+            int y=1;
+            for(int z=0; z<2; z++)
             {
-                for(int x=0; x<=12; x++)
+            	for(int i=0; i< 4; i++)
                 {
-                    deck[x].face = (x+1);
+                    for(int x=0; x< 13; x++)
+                    {
+                        deck[y].face = (x+1);
+                        deck[y].setValue();
+                        deck[y].suit = (i+1);
+                        y++;
+                    }
                 }
             }
         }
     }
     
-    //Shuffles the 52 card deck
+    //Shuffles the 104 card deck
     public void Shuffle()
     {
         Card[] shuffledDeck = deck;
         int randomNum = 0;
         
-        for(int i = 0; i <= 51; i++)
+        for(int i = 0; i < 104; i++)
         {
             do
             {
-                randomNum = (int) (Math.random() * 52);
+                randomNum = (int) (Math.random() * 104);
                 
                 if((deck[randomNum].face != -1) && (deck[randomNum].suit != -1))
                 {
@@ -48,17 +55,24 @@ public class Deck
         deck = shuffledDeck;
     }
     
-    //Resets the deck to a full 52 card deck unshuffled
+    //Resets the deck to a full 104 card deck unshuffled
     public void Reset(String type)
     {
        if(type == "BlackJack")
         {
-            deck = new Card[51];
-            for(int i = 0; i <= 3; i++)
+            deck = new Card[104];
+            int y=1;
+            for(int z=0; z<2; z++)
             {
-                for(int x = 0; x <= 12; x++)
+            	for(int i=0; i< 4; i++)
                 {
-                    deck[x].face = (x + 1);
+                    for(int x=0; x< 13; x++)
+                    {
+                        deck[y].face = (x+1);
+                        deck[y].setValue();
+                        deck[y].suit = (i+1);
+                        y++;
+                    }
                 }
             }
         }
@@ -70,20 +84,29 @@ public class Deck
         
         if(type == "BlackJack")
         {
-            for(int i=0; i < players.length; i++)
-            {
-                for(int x = 0; x <= deck.length; x++)
+        	for(int a=0; a<2; a++)
+        	{
+        		for(int i=0; i < players.length; i++)
                 {
-                    if((deck[x].suit != 0) && (deck[x].face != 0))
+                    for(int x = 0; x < deck.length; x++)
                     {
-                        players[i].hand.add = deck[x];
-                        deck[x].face = 0;
-                        deck[x].suit = 0;
+                        if((deck[x].suit != 0) && (deck[x].face != 0))
+                        {
+                            players[i].getHand().add(deck[x]);
+                            if(a == 1)
+                            {
+                            	deck[x].visibleAll = true;
+                            }
+                            deck[x].face = 0;
+                            deck[x].suit = 0;
+                            break;
+                        }
                     }
+                    
+                    
                 }
-                
-                
-            }
+        	}
+            
             
         }
     }
