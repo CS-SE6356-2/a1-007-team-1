@@ -8,11 +8,17 @@ public class Player
 	private int points = 0;//keeps count of player's point total
 	private Player[] team = new Player[0];//array of players for use in team games, not applicable to Black Jack
 	boolean isOut = false;
+	int number = 0;
+  int cardTotal;
+
 	
 	
 	Player(String type)
 	{
-		
+		if(type == "BlackJack")
+		{
+			cardTotal = 0;
+		}
 	}
 	
 	ArrayList<Card> getHand()
@@ -39,29 +45,52 @@ public class Player
 	{
 		team = newTeam;
 	}
-	void draw()
+	void draw(Deck deck)
 	{
-		for(int i=0; i<=deck.length; i++)
+		
+		
+		for(int i=0; i<=deck.deck.length; i++)
 		{
-			if(deck[i].face != 0 && deck[i].suit != 0)
+			if(deck.deck[i].face != 0 && deck.deck[i].suit != 0)
 			{
-				hand.add(deck[i]);
-				deck[i].face = 0;
-				deck[i].suit = 0;
+				hand.add(deck.deck[i]);
+				deck.deck[i].visibleAll = true;
+				deck.deck[i].face = 0;
+				deck.deck[i].suit = 0;
 				break;
 			}
 		}
 	}
-	void discard(Card card)
+	void discard(Card card, Deck deck)
 	{
-		for(int i=0; i<=deck.length; i++)
+		for(int i=0; i<=deck.deck.length; i++)
 		{
-			if (deck[i].compareTo(card) == 0)
+			if (deck.deck[i].compareTo(card) == 0)
 			{
-				deck[i].face = 0;
-				deck[i].suit = 0;
+				deck.deck[i].face = 0;
+				deck.deck[i].suit = 0;
 				break;
 			}
 		}
 	}
+        void updateTotal()
+        {
+            for(int x = 0; x < hand.size(); x++)
+            {
+                cardTotal += hand.get(x).value;
+                
+                if(cardTotal > 21)
+                {
+                    for(int y = 0; y< hand.size(); y++)
+                    {
+                        if(hand.get(y).value == 11)
+                        {
+                            hand.get(x).value = 1;
+                            cardTotal -= 10;
+                        }
+                    }
+                }
+            }
+        }
+
 }
