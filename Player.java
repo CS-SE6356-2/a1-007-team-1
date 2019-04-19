@@ -9,13 +9,15 @@ public class Player
 	private Player[] team = new Player[0];//array of players for use in team games, not applicable to Black Jack
 	boolean isOut = false;
 	int number = 0;
+  int cardTotal;
+
 	
 	
 	Player(String type)
 	{
 		if(type == "BlackJack")
 		{
-			int cardTotal = 0;
+			cardTotal = 0;
 		}
 	}
 	
@@ -71,4 +73,24 @@ public class Player
 			}
 		}
 	}
+        void updateTotal()
+        {
+            for(int x = 0; x < hand.size(); x++)
+            {
+                cardTotal += hand.get(x).value;
+                
+                if(cardTotal > 21)
+                {
+                    for(int y = 0; y< hand.size(); y++)
+                    {
+                        if(hand.get(y).value == 11)
+                        {
+                            hand.get(x).value = 1;
+                            cardTotal -= 10;
+                        }
+                    }
+                }
+            }
+        }
+
 }

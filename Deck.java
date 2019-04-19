@@ -19,6 +19,7 @@ public class Deck
                     for(int x=0; x< 13; x++)
                     {
                         deck[y].face = (x+1);
+                        deck[y].setValue();
                         deck[y].suit = (i+1);
                         y++;
                     }
@@ -60,11 +61,19 @@ public class Deck
        if(type == "BlackJack")
         {
             deck = new Card[104];
+            int y=1;
+            for(int z=0; z<2; z++)
             for(int i = 0; i <= 3; i++)
             {
-                for(int x = 0; x <= 12; x++)
+            	for(int i=0; i< 4; i++)
                 {
-                    deck[x].face = (x + 1);
+                    for(int x=0; x< 13; x++)
+                    {
+                        deck[y].face = (x+1);
+                        deck[y].setValue();
+                        deck[y].suit = (i+1);
+                        y++;
+                    }
                 }
             }
         }
