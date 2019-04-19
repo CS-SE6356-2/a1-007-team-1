@@ -9,7 +9,8 @@ public class Player
 	private Player[] team = new Player[0];//array of players for use in team games, not applicable to Black Jack
 	boolean isOut = false;
 	int number = 0;
-        int cardTotal;
+  int cardTotal;
+
 	
 	
 	Player(String type)
@@ -91,4 +92,5 @@ public class Player
                 }
             }
         }
+
 }

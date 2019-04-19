@@ -63,6 +63,7 @@ public class Deck
             deck = new Card[104];
             int y=1;
             for(int z=0; z<2; z++)
+            for(int i = 0; i <= 3; i++)
             {
             	for(int i=0; i< 4; i++)
                 {

@@ -12,6 +12,7 @@ public class Game {
     static Player dealer = new Player(type);
     static int userinput=99;
     static int dealerAction = 0;
+
     
     public static void Main(String[] args)
     {

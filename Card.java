@@ -4,14 +4,16 @@ public class Card
 {
 	int face = 0;//the number or face on the card
 	int suit = 0;//the suit of the card (spade, club, diamond, heart)
+
         int value = 0;
+
 	
 	boolean visibleAll = false;
 	boolean visibleHolder = true;
 	
 	//Method to compare card to another card passed in.
-	
-        public int compareTo(Card c)
+
+	public int compareTo(Card c)
 	{
 		if (face == c.face)
 			return 0;
@@ -20,6 +22,7 @@ public class Card
 		else
 			return -1;
 	}
+
         public void setValue()
         {
             if(face == 1)
