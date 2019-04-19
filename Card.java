@@ -6,7 +6,7 @@ public class Card
 	int suit = 0;//the suit of the card (spade, club, diamond, heart)
 	
 	boolean visibleAll = false;
-	boolean visibleHolder = false;
+	boolean visibleHolder = true;
 	
 	//Method to compare card to another card passed in.
 	public int compareTo(Card c)
