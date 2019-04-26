@@ -4,9 +4,10 @@ public class Card
 {
 	int face = 0;//the number or face on the card
 	int suit = 0;//the suit of the card (spade, club, diamond, heart)
-    int value = 0;//the value of the card in relation to the current game
+  int value = 0;//the value of the card in relation to the current game
 	boolean visibleAll = false;//flag for whether card is visible to everyone playing
 	boolean visibleHolder = true;//flag for whether card is visible to holder
+
 	
 	
 	Card()//constructor
@@ -14,6 +15,7 @@ public class Card
 		
 	}
 	//Method to compare card to another card passed in.
+
 	public int compareTo(Card c)
 	{
 		if (face == c.face)
@@ -23,6 +25,7 @@ public class Card
 		else
 			return -1;
 	}
+
 	
 	//sets the value of card to what it is worth in the game (Blackjack in this case)
 	public void setValue()
@@ -48,5 +51,6 @@ public class Card
             value = face;
         }
     }
+
 
 }

@@ -12,6 +12,7 @@ public class Game {
     static int userinput=99;//input from user
     static int dealerAction = 0;//action taken by dealer
 
+
     
     public static void main(String[] args)
     {
@@ -69,6 +70,7 @@ public class Game {
             	}
             	
             	Deck deck = new Deck(type);//create deck
+
             	
             	deck.Shuffle();//shuffles deck
 
@@ -158,6 +160,7 @@ public class Game {
                                 dealerAction = 1;
                             }
                         }
+
                         else//if over 17, stays
                         {
                             dealerAction = 1;
@@ -268,6 +271,7 @@ public class Game {
             
         }
         
+
         return null;//returns null if no winner
     }
     }

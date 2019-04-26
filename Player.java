@@ -9,8 +9,7 @@ public class Player
 	private Player[] team = new Player[0];//array of players for use in team games, not applicable to Black Jack
 	boolean isOut = false;//flags when a person is out
 	int number = 0;//player number: Player1, Player2, etc.
-    int cardTotal;//total points of cards in hand
-
+  int cardTotal;//total points of cards in hand
 	
 	Player()
 	{
