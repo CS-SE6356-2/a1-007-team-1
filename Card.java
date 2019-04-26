@@ -4,13 +4,16 @@ public class Card
 {
 	int face = 0;//the number or face on the card
 	int suit = 0;//the suit of the card (spade, club, diamond, heart)
-
-        int value = 0;
+  int value = 0;//the value of the card in relation to the current game
+	boolean visibleAll = false;//flag for whether card is visible to everyone playing
+	boolean visibleHolder = true;//flag for whether card is visible to holder
 
 	
-	boolean visibleAll = false;
-	boolean visibleHolder = true;
 	
+	Card()//constructor
+	{
+		
+	}
 	//Method to compare card to another card passed in.
 
 	public int compareTo(Card c)
@@ -23,27 +26,31 @@ public class Card
 			return -1;
 	}
 
-        public void setValue()
+	
+	//sets the value of card to what it is worth in the game (Blackjack in this case)
+	public void setValue()
+    {
+        if(face == 1)//Aces worth 11 initially
         {
-            if(face == 1)
-            {
-                value = 11;
-            }
-            else if(face == 11)
-            {
-                value = 10;
-            }
-            else if(face == 12)
-            {
-                value = 10;
-            }
-            else if(face == 13)
-            {
-                value = 10;
-            }
-            else
-            {
-                value = face;
-            }
+            value = 11;
         }
+        else if(face == 11)//jacks worth 10
+        {
+            value = 10;
+        }
+        else if(face == 12)//queens worth 10
+        {
+            value = 10;
+        }
+        else if(face == 13)//kings worth 10
+        {
+            value = 10;
+        }
+        else//other cards worth their face value
+        {
+            value = face;
+        }
+    }
+
+
 }

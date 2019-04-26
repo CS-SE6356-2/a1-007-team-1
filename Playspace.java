@@ -5,11 +5,11 @@ public class Playspace {
     Card[] discardPile = new Card[52];
     String Type;
 
-    public void Playspace(String type)
+    Playspace(String type)
     {
     	if(type == "BlackJack")
     	{
-    		discardPile = new Card[30];
+    		discardPile = new Card[80];
     		
     		for(int i=0;i<discardPile.length; i++)
     		{
@@ -24,7 +24,7 @@ public class Playspace {
     	int flag = 0;
     	for (int i=0; i<discardPile.length; i++)
     	{
-    		if(discardPile[i].suit != 0 && discardPile[i].face != 0)
+    		if(discardPile[i].suit == 0 && discardPile[i].face == 0)
     		{
     			flag++;
     		}
@@ -41,7 +41,8 @@ public class Playspace {
     	{
     		if(discardPile[i].suit == 0 && discardPile[i].face == 0)
     		{
-    			
+    			discardPile[i].suit = card.suit;
+    			discardPile[i].face = card.face;
     		}
     	}
     }
