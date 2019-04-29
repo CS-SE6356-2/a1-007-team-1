@@ -9,12 +9,8 @@ public class Player
 	private Player[] team = new Player[0];//array of players for use in team games, not applicable to Black Jack
 	boolean isOut = false;//flags when a person is out
 	int number = 0;//player number: Player1, Player2, etc.
-  int cardTotal;//total points of cards in hand
+  	int cardTotal;//total points of cards in hand
 	
-	Player()
-	{
-		
-	}
 	Player(String type)//constructor
 	{
 		if(type == "BlackJack")
@@ -23,31 +19,31 @@ public class Player
 		}
 	}
 	
-	ArrayList<Card> getHand()
+	ArrayList<Card> getHand()//returns hand
 	{
 		return hand;
 	}
-	void setHand(ArrayList<Card> newHand)
+	void setHand(ArrayList<Card> newHand)//sets new hand
 	{
 		hand = newHand;
 	}
-	void clearHand()
+	void clearHand()//empties the hand
 	{
 		hand.clear();
 	}
-	int getPoints()
+	int getPoints()//returns points of the player
 	{
 		return points;
 	}
-	void setPoints(int newPoints)
+	void setPoints(int newPoints)//sets points
 	{
 		points = newPoints;
 	}
-	Player[] getTeam()
+	Player[] getTeam()//returns team
 	{
 		return team;
 	}
-	void setTeam(Player[] newTeam)
+	void setTeam(Player[] newTeam)//sets team
 	{
 		team = newTeam;
 	}
@@ -59,8 +55,8 @@ public class Player
 		{
 			if(deck.deck[i].face != 0 && deck.deck[i].suit != 0)
 			{
-				Card card = new Card();
-				card.face = deck.deck[i].face;
+				Card card = new Card();//creates empty card
+				card.face = deck.deck[i].face;//copies attributes of card in deck to new card
 				card.suit = deck.deck[i].suit;
 				card.value = deck.deck[i].value;
 				
