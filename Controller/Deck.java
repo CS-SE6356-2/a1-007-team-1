@@ -11,22 +11,22 @@ public class Deck
     {
     	deck = new Card[104];//size of 2 52-card decks for blackjack
         
-        for(int i = 0; i < 104; i++)
+        for(int i = 0; i < 104; i++)//for loop initializes the deck to new card objects
         {
         	deck[i]=new Card();
         }
         
         int y=0;//counter to keep track of place in deck
-        for(int z=0; z<2; z++)//loop to run through a full deck init. twice
+        for(int z=0; z<2; z++)//loop to run through a full deck initialization twice
         {
         	for(int i=0; i< 4; i++)//loop to run through all four suits
             {
                 for(int x=0; x< 13; x++)//loop to run through all 13 faces
                 {
                     deck[y].face = (x+1);
-                    deck[y].setValue();
+                    deck[y].setValue();//sets the card value during initialization
                     deck[y].suit = (i+1);
-                    y++;
+                    y++;//increments deck index to move to next card
                 }
             }
         }
@@ -39,7 +39,7 @@ public class Deck
         {
             deck = new Card[104];//size of 2 52-card decks for blackjack
             
-            for(int i = 0; i < 104; i++)
+            for(int i = 0; i < 104; i++)//for loop initializes the deck to new card objects
             {
             	deck[i]=new Card();
             }
@@ -52,9 +52,9 @@ public class Deck
                     for(int x=0; x< 13; x++)//loop to run through all 13 faces
                     {
                         deck[y].face = (x+1);
-                        deck[y].setValue();
+                        deck[y].setValue();//sets the card value during initialization
                         deck[y].suit = (i+1);
-                        y++;
+                        y++;//increments deck index to move to next card
                     }
                 }
             }
@@ -64,18 +64,18 @@ public class Deck
     //Shuffles the 104 card deck
     public void Shuffle()
     {
-        Deck shuffledDeck = new Deck();
-        int randomNum = 0;
+        Deck shuffledDeck = new Deck();//creates new deck for holding shuffled cards
+        int randomNum = 0;//random number variable for use in shuffling algorithm
         
         for(int i = 0; i < deck.length; i++)//runs through for entire deck size
         {
             do
             {
-                randomNum = (int) (Math.random() * deck.length);//randomly produces a num within the deck
+                randomNum = (int) (Math.random() * deck.length);//randomly produces an index within the unshuffled deck
                 
-                if((deck[randomNum].face != -1) && (deck[randomNum].suit != -1))//checks for duplicates
+                if((deck[randomNum].face != -1) && (deck[randomNum].suit != -1))//checks if this card has been used
                 {
-                    shuffledDeck.deck[i].face = deck[randomNum].face;
+                    shuffledDeck.deck[i].face = deck[randomNum].face;//copies the card's info into next available slot in shuffled deck
                     shuffledDeck.deck[i].suit = deck[randomNum].suit;
                     shuffledDeck.deck[i].value = deck[randomNum].value;
                     
@@ -94,7 +94,7 @@ public class Deck
     {
        if(type == "BlackJack")
        {
-            deck = new Card[104];//reset method uses same algorithm as initialization.
+            deck = new Card[104];//reset method uses same algorithm as initialization in constructor.
             int y=1;
             for(int z=0; z<2; z++)
             {
@@ -118,29 +118,29 @@ public class Deck
         
         if(type == "BlackJack")
         {
-        	for(int a=0; a<2; a++)
+        	for(int a=0; a<2; a++)//goes around the table twice, dealing once to each player on each go round
         	{
         		for(int x = 0; x < deck.length; x++)
                 {
-                    if((deck[x].suit != 0) && (deck[x].face != 0))
+                    if((deck[x].suit != 0) && (deck[x].face != 0))//finds next available card in deck
                     {
                     	Card card = new Card();
-                        Game.dealer.getHand().add(card);
+                        Game.dealer.getHand().add(card);//adds empty card into dealer's hand
                         
-                        card.face=deck[x].face;
+                        card.face=deck[x].face;//copies card attributes to newly dealt card
                         card.suit=deck[x].suit;
                         card.value=deck[x].value;
                         
                         if(a == 1)
                         {
-                        	card.visibleAll = true;
+                        	card.visibleAll = true;//second card dealt is visible to table
                         }
-                        deck[x].face = 0;
+                        deck[x].face = 0;//set card in deck to 0 to avoid reuse
                         deck[x].suit = 0;
                         break;
                     }
                 }
-        		for(int i=0; i < players.length; i++)
+        		for(int i=0; i < players.length; i++)//same as dealing to dealer, just for the player array
                 {
                     for(int x = 0; x < deck.length; x++)
                     {
