@@ -2,8 +2,8 @@
 import java.util.Arrays;
 
 public class Playspace {
-    Card[] discardPile = new Card[52];
-    String Type;
+    Card[] discardPile = new Card[52];//discard pile
+    String Type;//type of game being played
 
     Playspace(String type)
     {
@@ -19,7 +19,7 @@ public class Playspace {
     	}
     }
     
-    public boolean checkFull()
+    public boolean checkFull()//checks if discard pile is full
     {
     	int flag = 0;
     	for (int i=0; i<discardPile.length; i++)
@@ -35,7 +35,7 @@ public class Playspace {
     		return true;
     }
     
-    public void add(Card card)
+    public void add(Card card)//adds card to discardpile
     {
     	for(int i=0; i<discardPile.length; i++)
     	{
@@ -47,7 +47,7 @@ public class Playspace {
     	}
     }
 
-    public void clearPlayspace(){
+    public void clearPlayspace(){//clears playspace
         // clear the discard pile 
         discardPile = null;
     }
