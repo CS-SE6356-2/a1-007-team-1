@@ -1,5 +1,4 @@
-
-import java.util.Arrays;
+package com.game;
 
 public class Playspace {
     Card[] discardPile = new Card[52];
@@ -13,8 +12,8 @@ public class Playspace {
     		
     		for(int i=0;i<discardPile.length; i++)
     		{
-    			discardPile[i].suit = 0;
-    			discardPile[i].face = 0;
+    			discardPile[i].setSuit(0);
+    			discardPile[i].setFace(0);
     		}
     	}
     }
@@ -24,7 +23,7 @@ public class Playspace {
     	int flag = 0;
     	for (int i=0; i<discardPile.length; i++)
     	{
-    		if(discardPile[i].suit == 0 && discardPile[i].face == 0)
+    		if(discardPile[i].getSuit() == 0 && discardPile[i].getFace() == 0)
     		{
     			flag++;
     		}
@@ -39,10 +38,10 @@ public class Playspace {
     {
     	for(int i=0; i<discardPile.length; i++)
     	{
-    		if(discardPile[i].suit == 0 && discardPile[i].face == 0)
+    		if(discardPile[i].getSuit() == 0 && discardPile[i].getFace() == 0)
     		{
-    			discardPile[i].suit = card.suit;
-    			discardPile[i].face = card.face;
+    			discardPile[i].setSuit(card.getSuit());
+    			discardPile[i].setFace(card.getFace());
     		}
     	}
     }

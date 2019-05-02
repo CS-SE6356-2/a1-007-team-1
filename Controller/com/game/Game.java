@@ -1,3 +1,5 @@
+package com.game;
+
 import java.util.Scanner;
 
 //This class will serve as the main class for the program. It will house the main function,
@@ -12,11 +14,9 @@ public class Game {
     static int userinput=99;//input from user
     static int dealerAction = 0;//action taken by dealer
 
-
-    
     public static void main(String[] args)
     {
-    	while(userinput != 0)//loop for entire program, circles back to menu until exit is chosen
+    	while(true)//loop for entire program, circles back to menu until exit is chosen
     	{
     		for(int i=0; i<turnOrder.length; i++)
     		{
@@ -57,6 +57,8 @@ public class Game {
             		
             		userinput = input.nextInt();
             	}
+
+            	// game.setPlayers(userinput);
             	
             	turnOrder = new Player[userinput];//player chooses number of players
             	for (int i=0; i<userinput; i++)
@@ -85,13 +87,13 @@ public class Game {
                     	turnOrder[i].updateTotal();//update total value of cards
                     	
                     	//prints card face and total value
-                    	System.out.println("\nPlayer "+ turnOrder[i].number +" has "+ turnOrder[i].getHand().get(0).face + " " + turnOrder[i].getHand().get(1).face);
+                    	System.out.println("\nPlayer "+ turnOrder[i].number +" has "+ turnOrder[i].getHand().get(0).getFace() + " " + turnOrder[i].getHand().get(1).getFace());
                     	System.out.println("\nPlayer "+ turnOrder[i].number +" has "+ turnOrder[i].cardTotal+ " total");
                     }
                     dealer.updateTotal();//update total value of cards
                     
                     //prints card face and total value
-                    System.out.println("\nDealer"+ " has "+ dealer.getHand().get(0).face + " " + dealer.getHand().get(1).face);
+                    System.out.println("\nDealer"+ " has "+ dealer.getHand().get(0).getFace() + " " + dealer.getHand().get(1).getFace());
                     System.out.println("\nDealer"+ " has "+ dealer.cardTotal+ " total");
                     
                     for(int x = 0; x < turnOrder.length; x++)//runs through players and lets them take their turns
@@ -111,7 +113,7 @@ public class Game {
                                 System.out.print("\nPlayer "+ turnOrder[x].number +" has ");//Display player card total
                                 for(int i=0; i<turnOrder[x].getHand().size(); i++)
                                 {
-                                	System.out.print(turnOrder[x].getHand().get(i).face + " ");
+                                	System.out.print(turnOrder[x].getHand().get(i).getFace() + " ");
                                 }
                                 System.out.println("\n\nPlayer "+ turnOrder[x].number +" has "+ turnOrder[x].cardTotal+ " total");
                                 
@@ -137,7 +139,7 @@ public class Game {
                             System.out.print("\nDealer has ");
                             for(int i=0; i<dealer.getHand().size(); i++)
                             {
-                            	System.out.print(dealer.getHand().get(i).face + " ");
+                            	System.out.print(dealer.getHand().get(i).getFace() + " ");
                             }
                             System.out.println("\n\nDealer has "+ dealer.cardTotal+ " total");
                         }
@@ -151,7 +153,7 @@ public class Game {
                                 System.out.print("\nDealer has ");
                                 for(int i=0; i<dealer.getHand().size(); i++)
                                 {
-                                	System.out.print(dealer.getHand().get(i).face + " ");
+                                	System.out.print(dealer.getHand().get(i).getFace() + " ");
                                 }
                                 System.out.println("\n\nDealer has "+ dealer.cardTotal+ " total");
                             }
@@ -241,20 +243,24 @@ public class Game {
     	}
         
     }
-    public void phases(Player player, String type)//not used in blackjack
+
+    // Method for other gametypes, unused in blackjack
+    public void phases(Player player, String type)
     {
-        
+
     }
-    public static Player checkWin(String type, Player[] turnOrder)//check for win condition met
+
+    // Checks to determine if the win condition is met
+    public static Player checkWin(String type, Player[] turnOrder)
     {
 
         if(type == "BlackJack")
         {
-        	if(dealer.getPoints()==3)//win condition
+        	if(dealer.getPoints()==3) // Win condition
         	{
         		System.out.println("Dealer wins!");
         		
-        		return dealer;//returns winner
+        		return dealer; // Returns winner
         	}
         	
             for(int x=0; x < turnOrder.length; x++)
@@ -262,7 +268,7 @@ public class Game {
             	
                 if(turnOrder[x].getPoints() == 3)//win condition
                 {
-                	System.out.println("Player "+turnOrder[x].number+" wins the game!");
+                	System.out.println("Player "+ turnOrder[x].number+" wins the game!");
                 	
                     return turnOrder[x];//returns winner
                 }

@@ -1,6 +1,8 @@
+package com.game;
+
 import java.util.ArrayList;
 
-//This class is meant to hold player attributes and functions, for use in the Game class
+//This class is meant to hold player attributes and functions, for use in the com.game.Game class
 
 public class Player
 {
@@ -57,18 +59,18 @@ public class Player
 		//runs through deck looking for first available card
 		for(int i=0; i<deck.deck.length; i++)
 		{
-			if(deck.deck[i].face != 0 && deck.deck[i].suit != 0)
+			if(deck.deck[i].getFace() != 0 && deck.deck[i].getSuit() != 0)
 			{
 				Card card = new Card();
-				card.face = deck.deck[i].face;
-				card.suit = deck.deck[i].suit;
-				card.value = deck.deck[i].value;
+				card.setFace(deck.deck[i].getFace());
+				card.setSuit(deck.deck[i].getSuit());
+				card.setValue(deck.deck[i].getValue());
 				
 				hand.add(card);//adds to hand
 				
 				card.visibleAll = true;//all drawn cards in blackjack are visible to table
-				deck.deck[i].face = 0;//sets card in deck to 0 to avoid reuse
-				deck.deck[i].suit = 0;
+				deck.deck[i].setFace(0);//sets card in deck to 0 to avoid reuse
+				deck.deck[i].setSuit(0);
 				break;//exits for loop
 			}
 		}
@@ -81,7 +83,7 @@ public class Player
 			{
 				for (int i=0; i<table.discardPile.length; i++)//runs through and adds card into first empty slot
 		    	{
-		    		if(table.discardPile[i].suit == 0 && table.discardPile[i].face == 0)
+		    		if(table.discardPile[i].getSuit() == 0 && table.discardPile[i].getFace() == 0)
 		    		{
 		    			table.discardPile[i] = card;
 		    		}
@@ -93,15 +95,15 @@ public class Player
         	cardTotal=0;//reinitialize to zero
             for(int x = 0; x < hand.size(); x++)//runs through hand
             {
-                cardTotal += hand.get(x).value;//totals value of cards
+                cardTotal += hand.get(x).getValue();//totals value of cards
                 
                 if(cardTotal > 21)//detects bust
                 {
                     for(int y = 0; y< hand.size(); y++)//runs through hand again looking for aces to convert
                     {
-                        if(hand.get(y).value == 11)//if unconverted ace is found
+                        if(hand.get(y).getValue() == 11)//if unconverted ace is found
                         {
-                            hand.get(x).value = 1;//convert
+                            hand.get(x).setValue(1);//convert
                             cardTotal -= 10;//update point value of cards to account for conversion
                         }
                     }
