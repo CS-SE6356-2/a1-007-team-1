@@ -7,6 +7,8 @@ public class Card
     private int value = 0;//the value of the card in relation to the current game
     public boolean visibleAll = false;//flag for whether card is visible to everyone playing
 	public boolean visibleHolder = true;//flag for whether card is visible to holder
+        private String faceStr;
+        private String suitStr;
 
 	public Card() // Constructor
 	{
@@ -59,11 +61,46 @@ public class Card
     public void setFace(int f)
     {
         face = f;
+        
+        switch(face)
+        {
+            case 1:
+                faceStr = "Ace";
+                break;
+            case 11:
+                faceStr = "Jack";
+                break;
+            case 12:
+                faceStr = "Queen";
+                break;
+            case 13:
+                faceStr = "King";
+                break;
+                
+            default:
+                faceStr = String.valueOf(face);
+        }
     }
 
     public void setSuit(int s)
     {
         suit = s;
+        
+        switch(suit)
+        {
+            case 1:
+                suitStr = "Spade";
+                break;
+            case 2:
+                suitStr = "Club";
+                break;
+            case 3:
+                suitStr = "Diamond";
+                break;
+            case 4:
+                suitStr = "Heart";
+                break;
+        }
     }
 
     // Accessor methods
@@ -82,5 +119,14 @@ public class Card
     {
         return suit;
     }
-
+    
+    public String getFaceStr()
+    {
+        return faceStr;
+    }
+    
+    public String getSuitStr()
+    {
+        return suitStr;
+    }
 }
